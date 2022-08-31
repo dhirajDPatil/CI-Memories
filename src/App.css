@@ -1,0 +1,19 @@
+.body-Container{
+    padding-top: 70px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.container{
+    width: 75%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+@media only screen and (max-width: 600px) {
+    .body-Container{
+        display: flex;
+        flex-direction: column-reverse;
+    }    
+}
