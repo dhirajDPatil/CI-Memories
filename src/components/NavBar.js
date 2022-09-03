@@ -6,8 +6,10 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-import MenuIcon from '@mui/icons-material/Menu';
+// import MenuIcon from '@mui/icons-material/Menu';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import SearchIcon from '@mui/icons-material/Search';
+import { Tooltip } from '@mui/material';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -51,20 +53,27 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function SearchAppBar() {
+
+export default function NavBar({ setToggle }) {
+  const addMemory = () => {
+    setToggle((prevState) => !prevState);
+  }
   return (
     <Box sx={{ flexGrow: 1, position: 'fixed', width: '99%'}}>
       <AppBar position='static'>
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="open drawer"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+          <Tooltip title="Add Memory">
+            <IconButton
+              onClick={addMemory}
+              size="large"
+              edge="start"
+              color="inherit"
+              aria-label="open drawer"
+              sx={{ mr: 2 }}
+            >
+              <AddCircleIcon />
+            </IconButton>
+          </Tooltip>
           <Typography
             variant="h6"
             noWrap

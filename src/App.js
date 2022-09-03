@@ -1,4 +1,4 @@
-import AppBar from './components/AppBar'
+import NavBar from './components/NavBar'
 import Form from './components/form/Form';
 import Posts from './components/posts/posts';
 
@@ -10,18 +10,20 @@ import { useEffect, useState } from 'react';
 function App() {
   const dispatch = useDispatch();
   const [currentId, setCurrentId] = useState(null);
+  const [toggle, setToggle] = useState(false);
 
   useEffect(()=> {
     dispatch(getPosts());
   }, [currentId,dispatch])
   return (
     <div className="App">
-      <AppBar/>
+      <NavBar setToggle={setToggle} />
       <div className='body-Container'>
-        <div className='container'>
-          <Posts setCurrentId={setCurrentId}/>
-        </div>
-        <Form currentId={currentId} setCurrentId={setCurrentId}/>
+        {toggle? <Form setToggle={setToggle} currentId={currentId} setCurrentId={setCurrentId}/> : <>
+          <div className='container'>
+            <Posts setToggle={setToggle} setCurrentId={setCurrentId}/>
+          </div>
+        </>}
       </div>
     </div>
   );

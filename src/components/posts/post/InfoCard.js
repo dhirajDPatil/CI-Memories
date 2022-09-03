@@ -7,9 +7,12 @@ import { useDispatch } from 'react-redux';
 import moment from "moment";
 import { deletePost, likePost } from '../../../redux/actions/posts';
 
-export default function InfoCard({post, setCurrentId}) {
+export default function InfoCard({ setToggle, post, setCurrentId}) {
   const dispatch = useDispatch();
-  
+  const moreClickHandler = () => {
+    setCurrentId(post._id);
+    setToggle((prevState)=> !prevState)
+  }
   return (
     <div className='card' >
       <div className='creator'>
@@ -17,7 +20,7 @@ export default function InfoCard({post, setCurrentId}) {
           <h3 style={{margin: '0px'}}>{post.creator}</h3>
           <div style={{margin: '0px', marginTop: '2px'}}>{moment(post.createdAt).fromNow()}</div>
         </div>
-        <button onClick={() => setCurrentId(post._id)}>. . .</button>
+        <button onClick={moreClickHandler}>. . .</button>
       </div>
       <div className='image-location'><img src={post.selectedFile} alt='image_from_server'/></div>
       <div className='tag'>{post.tags.map((tag)=> `#${tag} `)}</div>

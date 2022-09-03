@@ -3,12 +3,12 @@ import InfoCard from './post/InfoCard';
 import Loader from '../Loader/Loader';
 import { useSelector } from 'react-redux';
 
-const Posts = ({setCurrentId}) => {
+const Posts = ({setToggle, setCurrentId}) => {
     const posts = useSelector((state)=> state.posts);
     return (
       !posts.length ? <Loader/> :<>
         {posts.map((post)=> {
-            return <InfoCard  key={post._id} post={post} setCurrentId={setCurrentId}/>
+            return <InfoCard setToggle={setToggle} key={post._id} post={post} setCurrentId={setCurrentId}/>
         })}
         </>
     )
