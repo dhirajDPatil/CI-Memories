@@ -5,9 +5,7 @@ import { useSelector } from 'react-redux';
 
 const Posts = ({search, setToggle, setCurrentId}) => {
     const posts = useSelector((state)=> state.posts);
-    console.log(posts)
     const newPosts =  search === '' ? posts : posts.filter((post)=> post.creator.includes(search))
-    console.log(newPosts)
     return (
       !newPosts.length ? <Loader/> :<>
         {newPosts.map((post)=> {
