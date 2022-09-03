@@ -1,70 +1,24 @@
-# Getting Started with Create React App
+Hosted Url : https://vlogcompilation.netlify.app/
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# This application used CRUD api written in node using express, mongoose and uses mongoDB for data storage.
 
-## Available Scripts
+1. After app component loads get api call is done which fectches data from database. till the time loading is shown
 
-In the project directory, you can run:
+2. Once data received shown in the form of card components.
 
-### `npm start`
+3. In the five feilds are povided to add detalis about event once provided all details after form submission post api gets called which takes all form data within headers and saves this data within data base
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+4. Like button and delete button is provided on each card. once like clicked count of like is changed within the data base and value is shown in the card
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+5. On delete click entry for this card is deleted from the database
 
-### `npm test`
+6. More button ( . . . ) is provided on top right the of card, on clicking gets all the data within form of that card on submit this card information gets updated
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+7. Clear button proved at the end of the card which is used to clear feilds of the form.
 
-### `npm run build`
+Addtional enhancements ==> 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+  1. Addition of user Authentication and Authorisation for the application 
+  2. Form validation and mandatory feilds restriction
+  3. Because of the image data storage initial load of the data from the database is slow, needs optimization there, to store manage and retrieve that image data
+  4. On click of the card image shown in the new component and navigation of to the other cards within this new compoents using arrows.
