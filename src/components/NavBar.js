@@ -87,7 +87,7 @@ export default function NavBar({ setToggle }) {
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search memories by title…"
+              placeholder="Search memories by tags …"
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>

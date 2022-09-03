@@ -25,11 +25,11 @@ input, textarea{
   box-shadow: 1px 2px black;
   background-color: white;
 }
+
 h4{
   text-transform: uppercase;
   word-spacing: 2px;
-  padding-top: 5px;
+  padding-top: 15px;
   text-align: center;
   margin: 0px;
-  padding: none;
 }

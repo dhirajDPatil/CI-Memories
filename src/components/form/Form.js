@@ -47,7 +47,6 @@ export default function Form ({ setToggle, currentId, setCurrentId}){
     }, [post])
   return (
     <div className='form-Container'>
-        {/* <h4>Memory Details</h4> */}
         { !post ? <h4>Create Memory</h4>: <h4>Edit Memory</h4>}
         <form onSubmit={handleSubmit} >
             <input placeholder='Creator Name' value={postData.creator} onChange={(e)=> setPostData({...postData, creator: e.target.value})}/>
