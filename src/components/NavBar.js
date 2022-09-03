@@ -6,7 +6,6 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-// import MenuIcon from '@mui/icons-material/Menu';
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import SearchIcon from '@mui/icons-material/Search';
 import { Tooltip } from '@mui/material';
@@ -54,9 +53,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 
-export default function NavBar({ setToggle }) {
+export default function NavBar({setSearch,setToggle }) {
   const addMemory = () => {
     setToggle((prevState) => !prevState);
+  }
+  const inputHandle = (e) => {
+    setSearch(e.target.value);
+
   }
   return (
     <Box sx={{ flexGrow: 1, position: 'fixed', width: '99%'}}>
@@ -82,13 +85,14 @@ export default function NavBar({ setToggle }) {
           >
             Memories Application
           </Typography>
-          <Search>
+          <Search >
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search memories by tags …"
+              placeholder="Search memories by Creator …"
               inputProps={{ 'aria-label': 'search' }}
+              onChange={inputHandle}
             />
           </Search>
         </Toolbar>

@@ -11,17 +11,18 @@ function App() {
   const dispatch = useDispatch();
   const [currentId, setCurrentId] = useState(null);
   const [toggle, setToggle] = useState(false);
+  const [search, setSearch] = useState('')
 
   useEffect(()=> {
     dispatch(getPosts());
   }, [currentId,dispatch])
   return (
     <div className="App">
-      <NavBar setToggle={setToggle} />
+      <NavBar setSearch={setSearch} setToggle={setToggle} />
       <div className='body-Container'>
         {toggle? <Form setToggle={setToggle} currentId={currentId} setCurrentId={setCurrentId}/> : <>
           <div className='container'>
-            <Posts setToggle={setToggle} setCurrentId={setCurrentId}/>
+            <Posts search={search} setToggle={setToggle} setCurrentId={setCurrentId}/>
           </div>
         </>}
       </div>

@@ -3,11 +3,14 @@ import InfoCard from './post/InfoCard';
 import Loader from '../Loader/Loader';
 import { useSelector } from 'react-redux';
 
-const Posts = ({setToggle, setCurrentId}) => {
+const Posts = ({search, setToggle, setCurrentId}) => {
     const posts = useSelector((state)=> state.posts);
+    console.log(posts)
+    const newPosts =  search === '' ? posts : posts.filter((post)=> post.creator.includes(search))
+    console.log(newPosts)
     return (
-      !posts.length ? <Loader/> :<>
-        {posts.map((post)=> {
+      !newPosts.length ? <Loader/> :<>
+        {newPosts.map((post)=> {
             return <InfoCard setToggle={setToggle} key={post._id} post={post} setCurrentId={setCurrentId}/>
         })}
         </>
