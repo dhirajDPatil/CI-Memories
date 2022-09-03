@@ -1,6 +1,6 @@
 .card{
     margin: 10px 10px;
-    max-width: 325px;
+    min-width: 320px;
     height: 400px;
     padding: 10px;
     border: 0.5px solid gray;
@@ -68,5 +68,4 @@ h3{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-
 }
