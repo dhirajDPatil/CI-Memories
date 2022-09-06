@@ -62,7 +62,7 @@ export default function NavBar({setSearch,setToggle }) {
 
   }
   return (
-    <Box sx={{ flexGrow: 1, position: 'fixed', width: '99%'}}>
+    <Box sx={{ top:0, flexGrow: 1, position: 'fixed', width: '99%'}}>
       <AppBar position='static'>
         <Toolbar>
           <Tooltip title="Add Memory">

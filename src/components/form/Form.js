@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Button } from '@mui/material';
+// import { Button } from '@mui/material';
 import FileBase from 'react-file-base64';
 import './Form.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { createPost, updatePost } from '../../redux/actions/posts'
-
+import { Button, Card, CardContent, Grid, TextField, Typography} from '@mui/material';
+import { Box } from '@mui/system';
 
 export default function Form ({ setToggle, currentId, setCurrentId}){
     const post = useSelector((state) => currentId? state.posts.find((p)=> p._id === currentId) : null);
@@ -47,17 +48,33 @@ export default function Form ({ setToggle, currentId, setCurrentId}){
     }, [post])
   return (
     <div className='form-Container'>
-        { !post ? <h4>Create Memory</h4>: <h4>Edit Memory</h4>}
         <form onSubmit={handleSubmit} >
-            <input placeholder='Creator Name' value={postData.creator} onChange={(e)=> setPostData({...postData, creator: e.target.value})}/>
-            <input placeholder='Title' value={postData.title} onChange={(e)=> setPostData({...postData, title: e.target.value})} />
-            <textarea placeholder='Description' value={postData.message} onChange={(e)=> setPostData({...postData, message: e.target.value})}/>
-            <input placeholder='Enter Tags' value={postData.tags} onChange={(e)=> setPostData({...postData, tags: e.target.value})}/>
-            <div className='selection' >
-                <FileBase type='file' multiple={false} onDone={({base64}) => setPostData({...postData, selectedFile: base64})} />
-            </div>
-            <Button type='submit' variant="contained" color='primary' size="small" sx={{width: '300px', marginBottom: '5px', marginTop: '5px'}}>Submit</Button>
-            <Button  variant="contained" color='secondary' size="small" sx={{width: '300px'}} onClick={clear} >Clear</Button>
+          <Box sx={{flexGrow: 1, top:'200px'}}>
+              <Card elevation={2}  style={{maxWidth:750, margin:'0 auto'}}>
+                  <Typography align='center' textTransform='uppercase' gutterBottom variant='h4' fontWeight={400} >{!post? <>Create Memory</>: <>Edit Memory</>}</Typography>
+                  <CardContent>
+                      <Grid container spacing={1}>
+                          <Grid xs={12} sm={6} item>
+                              <TextField label='Title' value={postData.title} onChange={(e)=> setPostData({...postData, title: e.target.value})} placeholder="Enter Title" variant='outlined' fullWidth />
+                          </Grid> 
+                          <Grid xs={12} sm={6} item>
+                              <TextField label='Creator' value={postData.creator} onChange={(e)=> setPostData({...postData, creator: e.target.value})} placeholder="Enter Creator's Name" variant='outlined' fullWidth/>
+                          </Grid> 
+                          <Grid xs={12} sm={6} item>
+                              <TextField label='Tags' value={postData.tags} onChange={(e)=> setPostData({...postData, tags: e.target.value})} placeholder="Enter Tags" variant='outlined' fullWidth />
+                          </Grid>  
+                          <FileBase  type='file' multiple={false} onDone={({base64}) => setPostData({...postData, selectedFile: base64})}/>
+                          <Grid xs={12} sm={6} item>
+                              <TextField label='Description' value={postData.message} onChange={(e)=> setPostData({...postData, message: e.target.value})} multiline rows={2} placeholder="Enter Description" variant='outlined' fullWidth/>
+                          </Grid> 
+                          <Grid xs={12} sm={6} spacing={1} columnSpacing={2} rowSpacing={1} >
+                              <Button type='submit' variant='contained' color='primary' size='small' sx={{marginLeft:'10px', marginBottom: '5px', marginTop: '10px'}} fullWidth >Submit</Button>
+                              <Button variant='contained' color='secondary' size='small' onClick={clear} sx={{marginLeft:'10px', marginBottom: '5px', marginTop: '5px'}} fullWidth >Clear</Button>
+                          </Grid> 
+                      </Grid>
+                  </CardContent>
+              </Card>
+          </Box>
         </form>
     </div>
   )
